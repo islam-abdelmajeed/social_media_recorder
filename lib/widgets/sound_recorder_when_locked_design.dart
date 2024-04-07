@@ -53,63 +53,64 @@ class SoundRecorderWhenLockedDesign extends StatelessWidget {
         },
         child: Row(
           children: [
-            InkWell(
-              onTap: () async {
-                soundRecordNotifier.isShow = false;
-                soundRecordNotifier.finishRecording();
-              },
-              child: Transform.scale(
-                scale: 1.2,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(600),
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.easeIn,
-                    width: fullRecordPackageHeight,
-                    height: fullRecordPackageHeight,
-                    child: Container(
-                      color: recordIconWhenLockBackGroundColor,
-                      child: Padding(
-                        padding: const EdgeInsets.all(4.0),
-                        child: recordIconWhenLockedRecord ??
-                            sendButtonIcon ??
-                            Icon(
-                              Icons.send,
-                              textDirection: TextDirection.ltr,
-                              size: 28,
-                              color: (soundRecordNotifier.buttonPressed)
-                                  ? Colors.grey.shade200
-                                  : Colors.black,
-                            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: InkWell(
+                onTap: () async {
+                  soundRecordNotifier.isShow = false;
+                  soundRecordNotifier.finishRecording();
+                },
+                child: Transform.scale(
+                  scale: 1.2,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(300),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.easeIn,
+                      width: fullRecordPackageHeight,
+                      height: fullRecordPackageHeight,
+                      child: Container(
+                        color: recordIconWhenLockBackGroundColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: recordIconWhenLockedRecord ??
+                              sendButtonIcon ??
+                              Icon(
+                                Icons.send,
+                                textDirection: TextDirection.ltr,
+                                size: 20,
+                                color: (soundRecordNotifier.buttonPressed) ? Colors.grey.shade200 : Colors.black,
+                              ),
+                        ),
                       ),
                     ),
                   ),
                 ),
               ),
             ),
-            Expanded(
-              child: InkWell(
-                  onTap: () {
-                    soundRecordNotifier.isShow = false;
-                    String _time = soundRecordNotifier.minute.toString() +
-                        ":" +
-                        soundRecordNotifier.second.toString();
-                    if (stopRecording != null) stopRecording!(_time);
-                    soundRecordNotifier.resetEdgePadding();
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      cancelText ?? "",
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      overflow: TextOverflow.clip,
-                      style: cancelTextStyle ??
-                          const TextStyle(
-                            color: Colors.black,
-                          ),
-                    ),
-                  )),
+            const Spacer(),
+            InkWell(
+                onTap: () {
+                  soundRecordNotifier.isShow = false;
+                  String _time = soundRecordNotifier.minute.toString() + ":" + soundRecordNotifier.second.toString();
+                  if (stopRecording != null) stopRecording!(_time);
+                  soundRecordNotifier.resetEdgePadding();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    cancelText ?? "",
+                    maxLines: 1,
+                    textAlign: TextAlign.center,
+                    overflow: TextOverflow.clip,
+                    style: cancelTextStyle ??
+                        const TextStyle(
+                          color: Colors.black,
+                        ),
+                  ),
+                )),
+            const SizedBox(
+              width: 20.0,
             ),
             ShowCounter(
               soundRecorderState: soundRecordNotifier,

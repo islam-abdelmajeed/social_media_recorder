@@ -42,9 +42,7 @@ class ShowMicWithText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: !soundRecorderState.buttonPressed
-          ? MainAxisAlignment.center
-          : MainAxisAlignment.start,
+      mainAxisAlignment: !soundRecorderState.buttonPressed ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -54,28 +52,21 @@ class ShowMicWithText extends StatelessWidget {
               key: soundRecorderState.key,
               scale: soundRecorderState.buttonPressed ? 1.3 : 1,
               child: ClipRRect(
-                borderRadius: BorderRadius.circular(600),
+                borderRadius: BorderRadius.circular(350),
                 child: AnimatedContainer(
                   duration: const Duration(milliseconds: 200),
                   curve: Curves.easeIn,
-                  width: soundRecorderState.buttonPressed
-                      ? fullRecordPackageHeight
-                      : initRecordPackageWidth - 5,
+                  width: soundRecorderState.buttonPressed ? fullRecordPackageHeight : initRecordPackageWidth - 5,
                   height: fullRecordPackageHeight,
                   child: Container(
-                    color: (soundRecorderState.buttonPressed)
-                        ? backGroundColor ??
-                            Theme.of(context).colorScheme.secondary
-                        : Colors.transparent,
+                    color: (soundRecorderState.buttonPressed) ? backGroundColor ?? Theme.of(context).colorScheme.secondary : Colors.transparent,
                     child: Padding(
                       padding: const EdgeInsets.all(4.0),
                       child: recordIcon ??
                           Icon(
                             Icons.mic,
                             size: 28,
-                            color: (soundRecorderState.buttonPressed)
-                                ? Colors.grey.shade200
-                                : Colors.black,
+                            color: (soundRecorderState.buttonPressed) ? Colors.grey.shade200 : Colors.black,
                           ),
                     ),
                   ),

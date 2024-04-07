@@ -24,7 +24,7 @@ class ShowCounter extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: Container(
         height: fullRecordPackageHeight,
-        width: MediaQuery.of(context).size.width * 0.4,
+        width: MediaQuery.of(context).size.width * 0.3,
         color: counterBackGroundColor ?? Colors.grey.shade100,
         child: Padding(
           padding: const EdgeInsets.only(top: 6),
@@ -32,7 +32,7 @@ class ShowCounter extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const SizedBox(width: 30),
+              const SizedBox(width: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
