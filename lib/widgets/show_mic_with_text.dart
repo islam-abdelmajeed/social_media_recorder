@@ -50,7 +50,7 @@ class ShowMicWithText extends StatelessWidget {
           children: [
             Transform.scale(
               key: soundRecorderState.key,
-              scale: soundRecorderState.buttonPressed ? 1.3 : 1,
+              scale: soundRecorderState.buttonPressed ? 1.1 : 1,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(350),
                 child: AnimatedContainer(
@@ -65,7 +65,7 @@ class ShowMicWithText extends StatelessWidget {
                       child: recordIcon ??
                           Icon(
                             Icons.mic,
-                            size: 28,
+                            size: 25,
                             color: (soundRecorderState.buttonPressed) ? Colors.grey.shade200 : Colors.black,
                           ),
                     ),
