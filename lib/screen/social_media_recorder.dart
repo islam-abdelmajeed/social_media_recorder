@@ -126,8 +126,7 @@ class _SocialMediaRecorder extends State<SocialMediaRecorder> {
       sendRequestFunction: widget.sendRequestFunction,
     );
 
-    soundRecordNotifier.initialStorePathRecord =
-        widget.storeSoundRecoringPath ?? "";
+    soundRecordNotifier.initialStorePathRecord = widget.storeSoundRecoringPath ?? "";
     soundRecordNotifier.isShow = false;
     soundRecordNotifier.voidInitialSound();
     super.initState();
@@ -150,8 +149,7 @@ class _SocialMediaRecorder extends State<SocialMediaRecorder> {
         ],
         child: Consumer<SoundRecordNotifier>(
           builder: (context, value, _) {
-            return Directionality(
-                textDirection: TextDirection.rtl, child: makeBody(value));
+            return Directionality(textDirection: TextDirection.rtl, child: makeBody(value));
           },
         ));
   }
@@ -185,13 +183,11 @@ class _SocialMediaRecorder extends State<SocialMediaRecorder> {
       return SoundRecorderWhenLockedDesign(
         cancelText: widget.cancelText,
         fullRecordPackageHeight: widget.fullRecordPackageHeight,
-        // cancelRecordFunction: widget.cacnelRecording ?? () {},
         sendButtonIcon: widget.sendButtonIcon,
         cancelTextBackGroundColor: widget.cancelTextBackGroundColor,
         cancelTextStyle: widget.cancelTextStyle,
         counterBackGroundColor: widget.counterBackGroundColor,
-        recordIconWhenLockBackGroundColor:
-            widget.recordIconWhenLockBackGroundColor ?? Colors.blue,
+        recordIconWhenLockBackGroundColor: widget.recordIconWhenLockBackGroundColor ?? Colors.blue,
         counterTextStyle: widget.counterTextStyle,
         recordIconWhenLockedRecord: widget.recordIconWhenLockedRecord,
         sendRequestFunction: widget.sendRequestFunction,
@@ -204,7 +200,6 @@ class _SocialMediaRecorder extends State<SocialMediaRecorder> {
       onPointerDown: (details) async {
         state.setNewInitialDraggableHeight(details.position.dy);
         state.resetEdgePadding();
-
         soundRecordNotifier.isShow = true;
         state.record(widget.startRecording);
       },
@@ -216,9 +211,7 @@ class _SocialMediaRecorder extends State<SocialMediaRecorder> {
       child: AnimatedContainer(
         duration: Duration(milliseconds: soundRecordNotifier.isShow ? 0 : 300),
         height: widget.fullRecordPackageHeight,
-        width: (soundRecordNotifier.isShow)
-            ? MediaQuery.of(context).size.width
-            : widget.initRecordPackageWidth,
+        width: (soundRecordNotifier.isShow) ? MediaQuery.of(context).size.width : widget.initRecordPackageWidth,
         child: Stack(
           children: [
             Center(
@@ -240,8 +233,7 @@ class _SocialMediaRecorder extends State<SocialMediaRecorder> {
                           initRecordPackageWidth: widget.initRecordPackageWidth,
                           counterBackGroundColor: widget.counterBackGroundColor,
                           backGroundColor: widget.recordIconBackGroundColor,
-                          fullRecordPackageHeight:
-                              widget.fullRecordPackageHeight,
+                          fullRecordPackageHeight: widget.fullRecordPackageHeight,
                           recordIcon: widget.recordIcon,
                           shouldShowText: soundRecordNotifier.isShow,
                           soundRecorderState: state,
@@ -251,12 +243,7 @@ class _SocialMediaRecorder extends State<SocialMediaRecorder> {
                       ),
                       if (soundRecordNotifier.isShow)
                         Center(
-                          child: ShowCounter(
-                              counterBackGroundColor:
-                                  widget.counterBackGroundColor,
-                              soundRecorderState: state,
-                              fullRecordPackageHeight:
-                                  widget.fullRecordPackageHeight),
+                          child: ShowCounter(counterBackGroundColor: widget.counterBackGroundColor, soundRecorderState: state, fullRecordPackageHeight: widget.fullRecordPackageHeight),
                         ),
                     ],
                   ),
