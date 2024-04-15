@@ -41,16 +41,21 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(top: 140, left: 4, right: 4),
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                SocialMediaRecorder(
-                  startRecording: () {},
-                  stopRecording: (_time) {},
-                  sendRequestFunction: (soundFile, _time) {},
-                ),
-              ],
+          child: Align(
+            alignment: Alignment.centerRight,
+            child: SocialMediaRecorder(
+              // maxRecordTimeInSecond: 5,
+              startRecording: () {
+                // function called when start recording
+              },
+              stopRecording: (_time) {
+                // function called when stop recording, return the recording time
+              },
+              sendRequestFunction: (soundFile, _time) {
+                //  print("the current path is ${soundFile.path}");
+              },
+              encode: AudioEncoderType.AAC,
+              // storeSoundRecoringPath: "/storage/emulated/0/new_record_sound",
             ),
           ),
         ),
