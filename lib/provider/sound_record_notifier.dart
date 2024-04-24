@@ -132,7 +132,9 @@ class SoundRecordNotifier extends ChangeNotifier {
   }
 
   String _getSoundExtention() {
-    if (encode == AudioEncoderType.AAC || encode == AudioEncoderType.AAC_LD || encode == AudioEncoderType.AAC_HE || encode == AudioEncoderType.OPUS) {
+    if (encode == AudioEncoderType.AAC || encode == AudioEncoderType.AAC_LD) {
+      return ".mp3";
+    } else if (encode == AudioEncoderType.AAC_HE || encode == AudioEncoderType.OPUS) {
       return ".m4a";
     } else {
       return ".3gp";
